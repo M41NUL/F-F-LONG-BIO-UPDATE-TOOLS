@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>FF Long Bio</title>
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/Ps9sQ0MV/f379753e71f7.jpg">
+<link rel="apple-touch-icon" href="https://i.ibb.co/Ps9sQ0MV/f379753e71f7.jpg">
+<meta name="theme-color" content="#FF6B00">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --bg: #000;
+  --bg2: #0a0a0a;
+  --bg3: #111;
+  --bg4: #1c1c1e;
+  --bg5: #2c2c2e;
+  --sep: #38383a;
+  --orange: #FF6B00;
+  --orange-dim: rgba(255,107,0,0.15);
+  --orange-glow: rgba(255,107,0,0.28);
+  --text: #fff;
+  --text2: rgba(235,235,245,.8);
+  --text3: rgba(235,235,245,.55);
+  --text4: rgba(235,235,245,.3);
+  --green: #30d158;
+  --blue: #0a84ff;
+  --red: #ff453a;
+  --yellow: #ffd60a;
+  --radius: 13px;
+  --radius-lg: 18px;
+  --radius-xl: 22px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body {
+  font-family: -apple-system,'Inter',BlinkMacSystemFont,sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  padding-bottom: 60px;
+}
+
+/* ─── HEADER ─── */
+.header { padding: 52px 20px 0; text-align: center; }
+.header h1 { font-size: 30px; font-weight: 700; letter-spacing: -.7px; line-height: 1.15; margin-bottom: 8px; }
+.header h1 span { color: var(--orange); }
+.header p { font-size: 14px; color: var(--text3); line-height: 1.5; }
+
+/* ─── SECTION ─── */
+.section { margin: 28px 16px 0; }
+.section-label {
+  font-size: 12px; font-weight: 600; color: var(--text3);
+  text-transform: uppercase; letter-spacing: .6px;
+  margin-bottom: 10px; padding: 0 4px;
+}
+
+/* ─── TOKEN CARD ─── */
+.token-card {
+  background: linear-gradient(145deg, #1e1e22, #18181b);
+  border-radius: var(--radius-lg);
+  border: 1px solid #3a3a3e;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.token-type-row {
+  padding: 11px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--sep);
+  background: rgba(255,255,255,.02);
+}
+.token-type-label { font-size: 13px; color: var(--text2); font-weight: 500; }
+.token-type-picker {
+  display: flex; background: #111; border-radius: 9px;
+  padding: 2px; gap: 2px; border: 1px solid var(--sep);
+}
+.type-btn {
+  background: transparent; border: none; border-radius: 7px;
+  padding: 5px 12px; font-size: 11px; font-weight: 600;
+  color: var(--text3); cursor: pointer; font-family: inherit;
+  transition: all .2s; white-space: nowrap;
+}
+.type-btn.active {
+  background: var(--orange); color: #fff;
+  box-shadow: 0 2px 8px rgba(255,107,0,.4);
+}
+.token-input-area {
+  padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.token-input-row {
+  display: flex; align-items: center; gap: 10px;
+  background: #0d0d0f;
+  border: 1.5px solid #3a3a3e;
+  border-radius: 12px;
+  padding: 10px 14px;
+  transition: border-color .25s, box-shadow .25s;
+}
+.token-input-row:focus-within { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,107,0,.12); }
+.token-input-row.valid { border-color: var(--green) !important; box-shadow: 0 0 0 3px rgba(48,209,88,.12) !important; }
+.token-input-row.invalid { border-color: var(--red) !important; box-shadow: 0 0 0 3px rgba(255,69,58,.12) !important; }
+.token-field-icon {
+  width: 32px; height: 32px; border-radius: 9px;
+  background: var(--orange-dim); border: 1px solid var(--orange-glow);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: var(--orange); font-size: 13px;
+  transition: background .25s, border-color .25s, color .25s;
+}
+.token-input-row.valid .token-field-icon { background: rgba(48,209,88,.15); border-color: rgba(48,209,88,.35); color: var(--green); }
+.token-input-row.invalid .token-field-icon { background: rgba(255,69,58,.12); border-color: rgba(255,69,58,.3); color: var(--red); }
+.token-input-wrap { flex: 1; min-width: 0; }
+.token-label-sm {
+  font-size: 10px; font-weight: 600; color: var(--text4);
+  text-transform: uppercase; letter-spacing: .5px; margin-bottom: 3px;
+  display: flex; align-items: center; gap: 5px;
+}
+.token-valid-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: none; flex-shrink: 0; }
+.token-invalid-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); display: none; flex-shrink: 0; }
+.token-input-row.valid .token-valid-dot { display: block; }
+.token-input-row.invalid .token-invalid-dot { display: block; }
+.token-input {
+  background: transparent; border: none; outline: none;
+  color: var(--text); font-size: 13.5px;
+  font-family: 'Menlo','Monaco',monospace; width: 100%;
+  -webkit-text-security: disc; text-security: disc;
+}
+.token-input.visible { -webkit-text-security: none; text-security: none; }
+.eye-btn {
+  background: none; border: none; color: var(--text3); cursor: pointer;
+  padding: 5px; border-radius: 7px; display: flex; align-items: center;
+  justify-content: center; transition: color .15s, background .15s; flex-shrink: 0;
+  font-size: 15px; width: 30px; height: 30px;
+}
+.eye-btn:hover { color: var(--text2); background: rgba(255,255,255,.07); }
+.eye-btn.active-eye { color: var(--orange); }
+.token-status-icon {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; flex-shrink: 0;
+  opacity: 0; transition: opacity .25s, transform .25s;
+  transform: scale(.5);
+}
+.token-status-icon.show { opacity: 1; transform: scale(1); }
+.token-status-icon.valid-icon { background: rgba(48,209,88,.15); color: var(--green); }
+.token-status-icon.invalid-icon { background: rgba(255,69,58,.1); color: var(--red); }
+.token-actions { display: flex; gap: 7px; }
+.tok-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  gap: 6px; background: #111; border: 1px solid #3a3a3e;
+  border-radius: 10px; padding: 9px 8px; font-size: 12px;
+  font-weight: 600; color: var(--text2); cursor: pointer;
+  font-family: inherit; transition: all .15s;
+}
+.tok-btn:active { opacity: .65; transform: scale(.95); }
+.tok-btn i { font-size: 12px; }
+.tok-btn.accent { color: var(--orange); border-color: var(--orange-glow); background: var(--orange-dim); }
+.tok-btn.danger { color: var(--red); border-color: rgba(255,69,58,.2); }
+.tok-btn:hover { border-color: #555; background: rgba(255,255,255,.05); }
+.tok-btn.accent:hover { background: rgba(255,107,0,.22); }
+.tok-btn.danger:hover { background: rgba(255,69,58,.08); }
+.token-hint {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; color: var(--text4); padding: 0 2px;
+  margin-top: 8px;
+}
+.token-hint a { color: var(--orange); text-decoration: none; font-weight: 600; }
+.token-hint i { font-size: 11px; flex-shrink: 0; }
+
+/* ─── EDITOR CARD ─── */
+.editor-card {
+  background: var(--bg4); border-radius: var(--radius-lg);
+  border: 1px solid var(--sep); overflow: hidden;
+}
+
+/* ─── COLOR PALETTE ─── */
+.color-palette { padding: 12px 14px; border-bottom: 1px solid var(--sep); }
+.palette-label {
+  font-size: 10px; font-weight: 600; color: var(--text3);
+  text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px;
+}
+
+/* Row labels */
+.palette-row-wrap { margin-bottom: 6px; }
+.palette-row-label {
+  font-size: 9px; font-weight: 600; color: var(--text4);
+  text-transform: uppercase; letter-spacing: .5px;
+  margin-bottom: 4px; padding: 0 1px;
+}
+
+.color-grid {
+  display: grid; grid-template-columns: repeat(12, 1fr);
+  gap: 5px;
+}
+.swatch-wrap { position: relative; }
+.swatch {
+  width: 100%; aspect-ratio: 1; border-radius: 6px; cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform .18s cubic-bezier(.34,1.56,.64,1), border-color .15s, box-shadow .15s;
+  position: relative;
+}
+.swatch:hover { transform: scale(1.2) translateY(-1px); }
+.swatch:active { transform: scale(.85); }
+.swatch.active { border-color: #fff; box-shadow: 0 0 0 2px rgba(255,255,255,.25); transform: scale(1.15); }
+.swatch.active::after { content: ''; position: absolute; inset: 0; border-radius: 4px; background: rgba(255,255,255,.2); }
+
+/* Swatch tooltip */
+.swatch-wrap { position: relative; }
+.swatch-tip {
+  position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  background: #1c1c1e; border: 1px solid #3a3a3e; border-radius: 7px;
+  padding: 4px 8px; font-size: 10px; font-weight: 600; color: #fff;
+  white-space: nowrap; pointer-events: none; opacity: 0;
+  transition: opacity .15s ease; z-index: 99;
+  box-shadow: 0 4px 12px rgba(0,0,0,.5);
+}
+.swatch-tip::after {
+  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 4px solid transparent; border-top-color: #3a3a3e;
+}
+.swatch-wrap:hover .swatch-tip { opacity: 1; }
+
+.custom-color-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+input[type="color"] {
+  width: 34px; height: 30px; border-radius: 8px;
+  border: 1px solid var(--sep); background: var(--bg5);
+  cursor: pointer; padding: 2px; flex-shrink: 0;
+}
+.custom-add-btn {
+  display: flex; align-items: center; gap: 5px;
+  background: var(--orange-dim); border: 1px solid var(--orange-glow);
+  border-radius: 8px; padding: 6px 12px; font-size: 12px;
+  font-weight: 600; color: var(--orange); cursor: pointer;
+  font-family: inherit; transition: all .15s;
+}
+.custom-add-btn:active { opacity: .7; transform: scale(.96); }
+.custom-add-btn i { font-size: 11px; }
+.custom-label { font-size: 11px; color: var(--text3); flex: 1; }
+
+/* ─── FORMAT TOOLBAR ─── */
+.format-toolbar {
+  padding: 8px 14px; border-bottom: 1px solid var(--sep);
+  display: flex; gap: 4px; flex-wrap: nowrap; align-items: center;
+  overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.format-toolbar::-webkit-scrollbar { display: none; }
+.fmt-btn {
+  min-width: 30px; height: 30px; border-radius: 8px;
+  background: var(--bg5); border: 1px solid var(--sep);
+  color: var(--text2); font-size: 12px; font-weight: 700;
+  font-family: inherit; cursor: pointer; display: flex;
+  align-items: center; justify-content: center;
+  transition: all .15s; padding: 0 7px; white-space: nowrap; gap: 3px; flex-shrink: 0;
+}
+.fmt-btn:active { background: var(--orange); color: #fff; border-color: transparent; transform: scale(.91); }
+.fmt-btn.is-on { background: rgba(255,107,0,.18); border-color: rgba(255,107,0,.45); color: var(--orange); }
+.fmt-btn i { font-size: 12px; }
+.fmt-btn .fmt-label { font-size: 10px; font-weight: 600; }
+.fmt-sep { width: 1px; height: 20px; background: var(--sep); margin: 0 2px; flex-shrink: 0; }
+.fmt-btn.paste-btn { color: var(--orange); border-color: var(--orange-glow); background: var(--orange-dim); }
+.fmt-btn.paste-btn:active { background: var(--orange); color: #fff; }
+
+/* ─── TEXTAREA ─── */
+.bio-textarea {
+  display: block; width: 100%; background: transparent;
+  border: none; outline: none; color: var(--text);
+  font-size: 15px; font-family: 'SF Mono','Menlo','Monaco',monospace;
+  padding: 14px; resize: none; min-height: 140px; line-height: 1.6;
+}
+.bio-textarea::placeholder { color: var(--text4); }
+.char-counter {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 14px 12px; border-top: 1px solid var(--sep);
+}
+.char-num { font-size: 12px; font-family: 'Menlo',monospace; transition: color .5s ease; }
+.char-bar { flex: 1; height: 3px; background: var(--bg5); border-radius: 2px; margin: 0 12px; overflow: hidden; }
+.char-bar-fill { height: 100%; border-radius: 2px; transition: width .25s ease, background .5s ease; }
+
+/* ─── HISTORY BADGE ─── */
+.fmt-btn.hist-btn { position: relative; }
+.hist-badge {
+  position: absolute; top: -4px; right: -4px;
+  min-width: 15px; height: 15px; border-radius: 8px;
+  background: var(--orange); color: #fff;
+  font-size: 9px; font-weight: 700; line-height: 15px;
+  text-align: center; padding: 0 3px; display: none;
+  pointer-events: none; border: 1.5px solid var(--bg4);
+}
+.hist-badge.visible { display: block; }
+
+/* ─── HISTORY DRAWER ─── */
+.history-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  z-index: 400; align-items: flex-end; justify-content: center;
+}
+.history-overlay.active { display: flex; }
+.history-drawer {
+  background: #111; border-radius: 22px 22px 0 0;
+  border: 1px solid var(--sep); border-bottom: none;
+  width: 100%; max-width: 480px; max-height: 70vh;
+  display: flex; flex-direction: column;
+  animation: drawerUp .32s cubic-bezier(.34,1.4,.64,1) both; overflow: hidden;
+}
+@keyframes drawerUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+.drawer-handle { width: 36px; height: 4px; border-radius: 2px; background: var(--sep); margin: 10px auto 0; flex-shrink: 0; }
+.drawer-head {
+  padding: 12px 16px 10px; display: flex; align-items: center;
+  justify-content: space-between; border-bottom: 1px solid var(--sep); flex-shrink: 0;
+}
+.drawer-title { font-size: 14px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 7px; }
+.drawer-title i { color: var(--orange); font-size: 13px; }
+.drawer-actions { display: flex; align-items: center; gap: 8px; }
+.drawer-count {
+  font-size: 10px; background: var(--orange-dim); border: 1px solid var(--orange-glow);
+  border-radius: 100px; padding: 3px 9px; color: var(--orange); font-weight: 600;
+}
+.drawer-clear {
+  background: none; border: none; color: var(--text4); font-size: 11px;
+  cursor: pointer; font-family: inherit; padding: 5px 8px; border-radius: 7px;
+  transition: color .15s, background .15s; display: flex; align-items: center; gap: 4px;
+}
+.drawer-clear:hover { color: var(--red); background: rgba(255,69,58,.08); }
+.drawer-close {
+  background: var(--bg5); border: none; color: var(--text3);
+  width: 26px; height: 26px; border-radius: 8px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; transition: color .15s, background .15s;
+}
+.drawer-close:hover { color: var(--text); background: var(--sep); }
+.drawer-body { overflow-y: auto; flex: 1; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.drawer-body::-webkit-scrollbar { display: none; }
+.drawer-empty { padding: 36px 20px; text-align: center; font-size: 13px; color: var(--text4); font-style: italic; }
+.drawer-empty i { display: block; font-size: 28px; margin-bottom: 10px; opacity: .3; color: var(--orange); }
+.history-list { padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+.history-item {
+  background: #0d0d0f; border: 1px solid var(--sep); border-radius: 10px; padding: 10px 12px;
+  cursor: pointer; transition: border-color .15s, background .15s;
+  display: flex; align-items: flex-start; gap: 10px;
+  animation: historySlideIn .22s ease both;
+}
+.history-item:hover { border-color: var(--orange-glow); background: rgba(255,107,0,.05); }
+.history-item:active { transform: scale(.98); opacity: .8; }
+.history-item-num {
+  width: 20px; height: 20px; border-radius: 6px;
+  background: var(--orange-dim); border: 1px solid var(--orange-glow);
+  color: var(--orange); font-size: 10px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+}
+.history-item-body { flex: 1; min-width: 0; }
+.history-item-text { font-size: 13px; color: var(--text2); line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.history-item-meta { font-size: 10px; color: var(--text4); margin-top: 3px; display: flex; align-items: center; gap: 6px; }
+.history-item-meta i { font-size: 9px; }
+.history-load-tag {
+  font-size: 10px; color: var(--orange); font-weight: 600;
+  background: var(--orange-dim); border: 1px solid var(--orange-glow);
+  border-radius: 5px; padding: 2px 6px; flex-shrink: 0; align-self: center;
+}
+.history-item-del {
+  background: none; border: none; color: var(--text4); cursor: pointer;
+  width: 22px; height: 22px; border-radius: 6px; display: flex;
+  align-items: center; justify-content: center; font-size: 11px;
+  flex-shrink: 0; transition: color .15s, background .15s; align-self: center;
+}
+.history-item-del:hover { color: var(--red); background: rgba(255,69,58,.1); }
+
+/* ─── PREVIEW ─── */
+.preview-card { background: var(--bg4); border-radius: var(--radius-lg); border: 1px solid var(--sep); overflow: hidden; }
+.preview-header {
+  padding: 10px 14px; display: flex; align-items: center;
+  justify-content: space-between; border-bottom: 1px solid var(--sep);
+}
+.preview-title { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .5px; }
+.preview-badge {
+  font-size: 10px; background: rgba(48,209,88,.15); border: 1px solid rgba(48,209,88,.3);
+  border-radius: 100px; padding: 3px 9px; color: var(--green); font-weight: 600;
+}
+.preview-box {
+  margin: 14px; background: #0d0d0f; border: 1px solid var(--sep);
+  border-radius: 14px; padding: 16px 18px; min-height: 72px;
+  font-size: 15px; line-height: 1.65; word-break: break-word;
+  font-family: -apple-system, 'Inter', sans-serif;
+}
+.p-bold { font-weight: 800; }
+.p-italic { font-style: italic; }
+.p-underline { text-decoration: underline; }
+.p-strike { text-decoration: line-through; }
+.p-underline.p-strike { text-decoration: underline line-through; }
+.p-center { display: block; text-align: center; }
+.p-left   { display: block; text-align: left; }
+.p-right  { display: block; text-align: right; }
+
+/* ─── UPDATE BUTTON ─── */
+.update-btn {
+  width: 100%; background: var(--orange); color: #fff; border: none;
+  border-radius: var(--radius); padding: 16px; font-size: 17px;
+  font-weight: 700; font-family: inherit; cursor: pointer;
+  letter-spacing: -.2px; transition: opacity .15s, transform .1s;
+  box-shadow: 0 6px 24px rgba(255,107,0,.35);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.update-btn:active { opacity: .85; transform: scale(.98); }
+.update-btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+.update-btn i { font-size: 18px; }
+.update-btn.success-flash {
+  background: var(--green) !important;
+  box-shadow: 0 6px 24px rgba(48,209,88,.4) !important;
+  transition: background .3s ease, box-shadow .3s ease;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.btn-spinner {
+  width: 20px; height: 20px; border: 2.5px solid rgba(255,255,255,.3);
+  border-top-color: #fff; border-radius: 50%;
+  animation: spin .7s linear infinite; flex-shrink: 0;
+}
+
+/* ─── RESULT MODAL ─── */
+.result-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,.75);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  z-index: 500; align-items: center; justify-content: center; padding: 24px;
+}
+.result-overlay.active { display: flex; }
+.result-card {
+  background: #111; border-radius: var(--radius-xl); border: 1px solid var(--sep);
+  padding: 28px 22px 22px; width: 100%; max-width: 330px; text-align: center;
+  position: relative; overflow: hidden;
+  animation: cardPop .38s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes cardPop {
+  from { opacity: 0; transform: scale(.85) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.result-card.success-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+.result-card.error-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+.pop-container { position: relative; height: 90px; margin-bottom: 16px; display:flex; align-items:center; justify-content:center; }
+
+/* Ring pulse layers */
+.pop-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+.pop-ring-1 {
+  width: 64px; height: 64px;
+  border: 2.5px solid var(--orange);
+  animation: ringPulse .9s cubic-bezier(.2,.6,.4,1) .32s both;
+}
+.pop-ring-2 {
+  width: 64px; height: 64px;
+  border: 2px solid rgba(255,107,0,.5);
+  animation: ringPulse .9s cubic-bezier(.2,.6,.4,1) .5s both;
+}
+.pop-ring-3 {
+  width: 64px; height: 64px;
+  border: 1.5px solid rgba(255,107,0,.25);
+  animation: ringPulse .9s cubic-bezier(.2,.6,.4,1) .68s both;
+}
+@keyframes ringPulse {
+  0%   { opacity: .9; transform: scale(1); }
+  100% { opacity: 0;  transform: scale(2.4); }
+}
+
+.pop-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+  animation: iconPop .42s cubic-bezier(.34,1.56,.64,1) both;
+}
+.pop-icon.success-icon { background: var(--orange-dim); border: 2px solid var(--orange-glow); }
+.pop-icon.error-icon   { background: rgba(255,69,58,.12); border: 2px solid rgba(255,69,58,.25); color: var(--red); font-size: 28px; }
+@keyframes iconPop {
+  from { opacity: 0; transform: scale(.4); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* SVG checkmark draw */
+.check-svg { width: 32px; height: 32px; display: block; }
+.check-path {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: drawCheck .45s cubic-bezier(.4,0,.2,1) .28s forwards;
+}
+@keyframes drawCheck {
+  to { stroke-dashoffset: 0; }
+}
+.confetti-dot { position: absolute; width: 8px; height: 8px; border-radius: 50%; animation: confettiPop .6s ease both; }
+@keyframes confettiPop {
+  from { opacity: 1; transform: translate(0,0) scale(1); }
+  to   { opacity: 0; transform: var(--end) scale(.2); }
+}
+.rm-profile { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; text-align: left; }
+.rm-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 7px 12px; background: rgba(255,255,255,.04);
+  border: 1px solid var(--sep); border-radius: 10px; gap: 10px;
+}
+.rm-key { font-size: 10px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .5px; flex-shrink: 0; }
+.rm-val { font-size: 13px; font-weight: 600; color: var(--text); text-align: right; word-break: break-all; }
+.rm-bio-box { padding: 10px 12px; background: rgba(255,255,255,.04); border: 1px solid var(--sep); border-radius: 10px; }
+.rm-bio-label { font-size: 10px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 5px; }
+.rm-bio-content { font-size: 13px; color: var(--text2); line-height: 1.5; word-break: break-word; }
+.rm-bio-len { font-size: 10px; color: var(--text4); margin-top: 4px; text-align: right; }
+.platform-row { display: flex; align-items: center; gap: 6px; }
+.platform-icon { font-size: 15px; }
+.result-title { font-size: 20px; font-weight: 700; letter-spacing: -.3px; margin-bottom: 6px; }
+.result-msg { font-size: 13px; color: var(--text3); line-height: 1.5; margin-bottom: 20px; }
+.result-close {
+  width: 100%; background: var(--bg5); border: none; border-radius: var(--radius);
+  padding: 13px; color: var(--text2); font-size: 15px; font-weight: 600;
+  font-family: inherit; cursor: pointer;
+  transition: background .2s, color .2s, opacity .15s;
+}
+.result-close:hover { background: rgba(255,107,0,.12); color: var(--orange); }
+.result-close:active { opacity: .7; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up   { animation: fadeUp .5s cubic-bezier(.25,.46,.45,.94) both; }
+.fade-up-2 { animation: fadeUp .5s .08s cubic-bezier(.25,.46,.45,.94) both; }
+.fade-up-3 { animation: fadeUp .5s .16s cubic-bezier(.25,.46,.45,.94) both; }
+.fade-up-4 { animation: fadeUp .5s .24s cubic-bezier(.25,.46,.45,.94) both; }
+.fade-up-5 { animation: fadeUp .5s .32s cubic-bezier(.25,.46,.45,.94) both; }
+.fade-up-6 { animation: fadeUp .5s .40s cubic-bezier(.25,.46,.45,.94) both; }
+@keyframes historySlideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  padding: 28px 20px 40px; display: flex; flex-direction: column;
+  align-items: center; gap: 14px;
+  border-top: 1px solid var(--sep); margin-top: 40px;
+}
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+.footer-link {
+  display: flex; align-items: center; gap: 5px;
+  background: var(--bg4); border: 1px solid var(--sep);
+  border-radius: 100px; padding: 5px 11px; font-size: 11px;
+  font-weight: 500; color: var(--text2); text-decoration: none;
+  transition: border-color .15s, color .15s; white-space: nowrap;
+}
+.footer-link:active { opacity: .7; }
+.footer-link:hover { border-color: var(--orange); color: var(--orange); }
+.footer-link i { font-size: 11px; flex-shrink: 0; }
+.footer-copy { font-size: 11px; color: var(--text4); text-align: center; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header fade-up">
+  <h1>Free Fire<br><span>Long Bio Color</span></h1>
+  <p>Update your Free Fire profile bio instantly</p>
+</div>
+
+<!-- TOKEN SECTION -->
+<div class="section fade-up-2">
+  <div class="section-label">Authentication</div>
+  <div class="token-card">
+    <div class="token-type-row">
+      <span class="token-type-label">Token Type</span>
+      <div class="token-type-picker">
+        <button class="type-btn active" id="type-access" onclick="setType('access',this)">Access</button>
+        <button class="type-btn" id="type-eat" onclick="setType('eat',this)">EAT</button>
+        <button class="type-btn" id="type-jwt" onclick="setType('jwt',this)">JWT</button>
+      </div>
+    </div>
+    <div class="token-input-area">
+      <div class="token-input-row" id="token-input-row">
+        <div class="token-field-icon">
+          <i class="fa-solid fa-key"></i>
+        </div>
+        <div class="token-input-wrap">
+          <div class="token-label-sm">
+            <span id="token-label">Access Token</span>
+            <span class="token-valid-dot"></span>
+            <span class="token-invalid-dot"></span>
+          </div>
+          <input class="token-input" id="token-input" type="text"
+            placeholder="Paste your access token here..."
+            autocomplete="off" spellcheck="false"
+            oninput="onTokenInput()">
+        </div>
+        <div class="token-status-icon" id="token-status-icon">
+          <i id="token-status-i" class="fa-solid fa-check"></i>
+        </div>
+        <button class="eye-btn" id="eye-btn" onclick="toggleEye()" title="Show/Hide">
+          <i class="fa-regular fa-eye-slash" id="eye-icon-open"></i>
+          <i class="fa-regular fa-eye" id="eye-icon-closed" style="display:none"></i>
+        </button>
+      </div>
+      <div class="token-actions">
+        <button class="tok-btn accent" onclick="pasteToken()">
+          <i class="fa-regular fa-clipboard"></i> Paste
+        </button>
+        <button class="tok-btn" onclick="copyToken()">
+          <i class="fa-regular fa-copy"></i> Copy
+        </button>
+        <button class="tok-btn danger" onclick="clearToken()">
+          <i class="fa-regular fa-trash-can"></i> Clear
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="token-hint">
+    <i class="fa-solid fa-circle-info"></i>
+    Get your token from
+    <a href="https://eat-access-token-olive.vercel.app" target="_blank">ff-token.vercel.app →</a>
+  </div>
+</div>
+
+<!-- BIO EDITOR -->
+<div class="section fade-up-3">
+  <div class="section-label">Bio Editor</div>
+  <div class="editor-card">
+    <div class="color-palette">
+      <div class="palette-label">Quick Colors</div>
+
+      <!-- ROW 1: Pure vivid colours -->
+      <div class="palette-row-wrap">
+        <div class="palette-row-label">Vivid</div>
+        <div class="color-grid" id="color-grid-vivid"></div>
+      </div>
+
+      <!-- ROW 2: Low opacity / dim versions -->
+      <div class="palette-row-wrap" style="margin-top:8px">
+        <div class="palette-row-label">Dim</div>
+        <div class="color-grid" id="color-grid-dim"></div>
+      </div>
+
+      <!-- ROW 3: Extra / special colours -->
+      <div class="palette-row-wrap" style="margin-top:8px">
+        <div class="palette-row-label">Extra</div>
+        <div class="color-grid" id="color-grid-extra"></div>
+      </div>
+
+      <div class="custom-color-row">
+        <input type="color" id="colorPicker" value="#FF6B00">
+        <span class="custom-label">Custom color</span>
+        <button class="custom-add-btn" onclick="applyCustomColor()">
+          <i class="fa-solid fa-eyedropper"></i> Pick
+        </button>
+      </div>
+    </div>
+    <div class="format-toolbar">
+      <button class="fmt-btn paste-btn" onclick="pasteBioClipboard()" title="Paste from clipboard">
+        <i class="fa-regular fa-clipboard"></i>
+        <span class="fmt-label">Paste</span>
+      </button>
+      <div class="fmt-sep"></div>
+      <button class="fmt-btn" id="btn-B" onclick="toggleFmtTag('B')" title="Bold">
+        <b style="font-family:Georgia,serif;font-size:14px;">B</b>
+      </button>
+      <button class="fmt-btn" id="btn-I" onclick="toggleFmtTag('I')" title="Italic">
+        <i style="font-family:Georgia,serif;font-style:italic;font-size:14px;">I</i>
+      </button>
+      <button class="fmt-btn" id="btn-U" onclick="toggleFmtTag('U')" title="Underline">
+        <u style="font-size:13px;">U</u>
+      </button>
+      <button class="fmt-btn" id="btn-S" onclick="toggleFmtTag('S')" title="Strikethrough">
+        <s style="font-size:13px;">S</s>
+      </button>
+      <div class="fmt-sep"></div>
+      <button class="fmt-btn" id="btn-C" onclick="toggleAlignTag('C')" title="Center">C</button>
+      <div class="fmt-sep"></div>
+      <button class="fmt-btn" onclick="insertLineBreak()" title="New Line">
+        <i class="fa-solid fa-turn-down"></i>
+        <span class="fmt-label">BR</span>
+      </button>
+      <div class="fmt-sep"></div>
+      <button class="fmt-btn" onclick="clearBio()" title="Clear" style="color:var(--red)">
+        <i class="fa-regular fa-trash-can"></i>
+      </button>
+      <div class="fmt-sep"></div>
+      <button class="fmt-btn hist-btn" onclick="openHistory()" title="Bio History">
+        <i class="fa-solid fa-clock-rotate-left" style="color:var(--orange)"></i>
+        <span class="hist-badge" id="hist-badge"></span>
+      </button>
+    </div>
+    <textarea class="bio-textarea" id="bio-textarea"
+      placeholder="Write your bio here...&#10;Click a color above, then start typing!"
+      maxlength="280"
+      oninput="updateCharCount(); updatePreview(); syncToolbarState()"
+      onkeyup="syncToolbarState()"
+      onclick="syncToolbarState()"
+    ></textarea>
+    <div class="char-counter">
+      <div class="char-bar"><div class="char-bar-fill" id="char-bar-fill"></div></div>
+      <div class="char-num" id="char-num">0 / 280</div>
+    </div>
+  </div>
+</div>
+
+<!-- IN-GAME PREVIEW -->
+<div class="section fade-up-4">
+  <div class="section-label">In-Game Preview</div>
+  <div class="preview-card">
+    <div class="preview-header">
+      <div class="preview-title">
+        <i class="fa-solid fa-eye" style="margin-right:5px;color:var(--orange)"></i>
+        Bio Preview
+      </div>
+      <div class="preview-badge">Live</div>
+    </div>
+    <div class="preview-box" id="preview-bio">
+      <span style="color:rgba(255,255,255,.25);font-style:italic;font-size:14px;">Your bio will appear here...</span>
+    </div>
+  </div>
+</div>
+
+<!-- UPDATE BUTTON -->
+<div class="section fade-up-6">
+  <button class="update-btn" id="update-btn" onclick="updateBio()">
+    <i class="fa-solid fa-arrow-up-from-bracket" id="update-btn-icon"></i>
+    <span id="update-btn-text">Update Bio</span>
+  </button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a class="footer-link" href="https://github.com/M41NUL" target="_blank">
+      <i class="fa-brands fa-github"></i> M41NUL
+    </a>
+    <a class="footer-link" href="https://wa.me/8801308850528" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
+    <a class="footer-link" href="https://t.me/mdmainulislaminfo" target="_blank">
+      <i class="fa-brands fa-telegram"></i> Telegram
+    </a>
+    <a class="footer-link" href="mailto:devmainulislam@gmail.com">
+      <i class="fa-regular fa-envelope"></i> Email
+    </a>
+  </div>
+  <div class="footer-copy">© <span id="footer-year"></span> Free Fire Long Bio — MAINUL — X. All rights reserved.</div>
+</footer>
+
+<!-- HISTORY DRAWER -->
+<div class="history-overlay" id="history-overlay" onclick="closeHistoryIfOverlay(event)">
+  <div class="history-drawer" id="history-drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-head">
+      <div class="drawer-title">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        Bio History
+      </div>
+      <div class="drawer-actions">
+        <div class="drawer-count" id="drawer-count">0 / 10</div>
+        <button class="drawer-clear" onclick="clearAllHistory()">
+          <i class="fa-regular fa-trash-can"></i> Clear
+        </button>
+        <button class="drawer-close" onclick="closeHistory()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-empty" id="history-empty">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        Successfully updated bios will appear here
+      </div>
+      <div class="history-list" id="history-list" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT MODAL -->
+<div class="result-overlay" id="result-overlay">
+  <div class="result-card" id="result-card">
+    <div class="pop-container">
+      <div class="pop-ring pop-ring-1" id="pop-ring-1"></div>
+      <div class="pop-ring pop-ring-2" id="pop-ring-2"></div>
+      <div class="pop-ring pop-ring-3" id="pop-ring-3"></div>
+      <div class="pop-icon" id="pop-icon">
+        <!-- success: SVG checkmark -->
+        <svg class="check-svg" id="check-svg" viewBox="0 0 32 32" style="display:none">
+          <path class="check-path" id="check-path" d="M7 16 L13 22 L25 10"/>
+        </svg>
+        <!-- error: icon -->
+        <i id="pop-icon-i" class="fa-solid fa-xmark" style="display:none;font-size:28px;color:var(--red)"></i>
+      </div>
+    </div>
+    <div class="result-title" id="result-title">Bio Updated!</div>
+    <div class="result-msg" id="result-msg">Your profile bio was updated successfully.</div>
+    <div class="rm-profile" id="rm-profile" style="display:none">
+      <div class="rm-row">
+        <span class="rm-key">Nickname</span>
+        <span class="rm-val" id="rmNickname">—</span>
+      </div>
+      <div class="rm-row">
+        <span class="rm-key">UID</span>
+        <span class="rm-val" id="rmUid">—</span>
+      </div>
+      <div class="rm-row">
+        <span class="rm-key">Region</span>
+        <span class="rm-val" id="rmRegion">—</span>
+      </div>
+      <div class="rm-row">
+        <span class="rm-key">Platform</span>
+        <span class="rm-val platform-row">
+          <i class="platform-icon" id="rmPlatformIcon"></i>
+          <span id="rmPlatformText">—</span>
+        </span>
+      </div>
+      <div class="rm-bio-box">
+        <div class="rm-bio-label">Updated Bio</div>
+        <div class="rm-bio-content" id="rmBioText">—</div>
+        <div class="rm-bio-len" id="rmBioLen"></div>
+      </div>
+    </div>
+    <button class="result-close" onclick="closeResult()">Done</button>
+  </div>
+</div>
+
+<script>
+// ─── COLOUR ROWS ───
+// Row 1: Pure vivid — 12 saturated solid colours
+const PALETTE_VIVID = [
+  '#FF0000','#FF4500','#FF8C00','#FFD700','#ADFF2F','#00FF00',
+  '#00FFBF','#00BFFF','#0055FF','#8000FF','#FF00FF','#FF1493',
+];
+
+// Row 2: Dim versions of same hues — 55% opacity baked into hex (8-char hex)
+// Computed as colour blended on #000 at ~50% alpha → approximated flat hex
+const PALETTE_DIM = [
+  '#7F0000','#7F2200','#7F4600','#7F6B00','#577F17','#007F00',
+  '#007F5F','#005F7F','#002A7F','#40007F','#7F007F','#7F0A49',
+];
+
+// Row 3: Extra useful colours
+const PALETTE_EXTRA = [
+  '#FFFFFF','#D0D0D8','#8E8E93','#3A3A3C','#FF6B00','#FF375F',
+  '#5856D6','#BF5AF2','#30D158','#0A84FF','#FFE066','#00E5FF',
+];
+
+let activeColor = null;
+
+const COLOR_NAMES = {
+  'FF0000':'Pure Red','FF4500':'Red Orange','FF8C00':'Dark Orange','FFD700':'Gold',
+  'ADFF2F':'Green Yellow','00FF00':'Pure Green','00FFBF':'Aquamarine','00BFFF':'Deep Sky',
+  '0055FF':'Pure Blue','8000FF':'Violet','FF00FF':'Magenta','FF1493':'Deep Pink',
+  '7F0000':'Dark Red','7F2200':'Burnt Orange','7F4600':'Brown','7F6B00':'Olive',
+  '577F17':'Moss','007F00':'Dark Green','007F5F':'Teal','005F7F':'Ocean',
+  '002A7F':'Navy','40007F':'Dark Violet','7F007F':'Purple','7F0A49':'Wine',
+  'FFFFFF':'White','D0D0D8':'Silver','8E8E93':'Grey','3A3A3C':'Dark Grey',
+  'FF6B00':'Orange','FF375F':'Coral','5856D6':'Indigo','BF5AF2':'Lilac',
+  '30D158':'Green','0A84FF':'Blue','FFE066':'Lemon','00E5FF':'Cyan',
+};
+
+function makeSwatch(hex, gridId) {
+  const grid = document.getElementById(gridId);
+  const wrap = document.createElement('div');
+  wrap.className = 'swatch-wrap';
+
+  const tip = document.createElement('div');
+  tip.className = 'swatch-tip';
+  const name = COLOR_NAMES[hex.replace('#','')] || hex;
+  tip.textContent = name;
+
+  const el = document.createElement('div');
+  el.className = 'swatch';
+  el.style.background = hex;
+  if (hex === '#FFFFFF' || hex === '#D0D0D8') el.style.outline = '1px solid #555';
+  el.onclick = () => {
+    document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+    activeColor = '[' + hex.replace('#','').toUpperCase() + ']';
+    insertTag(activeColor);
+  };
+
+  wrap.appendChild(tip);
+  wrap.appendChild(el);
+  grid.appendChild(wrap);
+}
+
+function buildPalette() {
+  PALETTE_VIVID.forEach(hex => makeSwatch(hex, 'color-grid-vivid'));
+  PALETTE_DIM.forEach(hex => makeSwatch(hex, 'color-grid-dim'));
+  PALETTE_EXTRA.forEach(hex => makeSwatch(hex, 'color-grid-extra'));
+}
+buildPalette();
+
+function applyCustomColor() {
+  const hex = document.getElementById('colorPicker').value.replace('#','').toUpperCase();
+  activeColor = '[' + hex + ']';
+  document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+  insertTag(activeColor);
+}
+
+// ─── TOKEN LOGIC ───
+const TOKEN_RULES = {
+  access: { test: v => v.length > 10 },
+  eat:    { test: v => v.length > 10 },
+  jwt:    { test: v => v.split('.').length === 3 },
+};
+
+let currentType = 'access';
+let manualTypeSet = false;
+
+function detectTokenType(val) {
+  if (!val || val.length < 10) return null;
+  if (/^[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_]+$/.test(val)) return 'jwt';
+  if (/^[a-f0-9]{100,}$/i.test(val)) return 'eat';
+  if (/^[a-f0-9]{20,}$/i.test(val)) return 'access';
+  return null;
+}
+
+function extractEatFromUrl(val) {
+  try {
+    const url = new URL(val);
+    const eat = url.searchParams.get('eat');
+    if (eat) return eat;
+  } catch(e) {}
+  return null;
+}
+
+function onTokenInput() {
+  const raw = document.getElementById('token-input').value;
+  const eat = extractEatFromUrl(raw.trim());
+  if (eat) {
+    document.getElementById('token-input').value = eat;
+    if (!manualTypeSet) applyType('eat');
+    validateTokenVisual(eat);
+    return;
+  }
+  if (!manualTypeSet) {
+    const detected = detectTokenType(raw.trim());
+    if (detected) applyType(detected);
+  }
+  validateTokenVisual(raw.trim());
+}
+
+function applyType(t) {
+  currentType = t;
+  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('type-' + t);
+  if (btn) btn.classList.add('active');
+  document.getElementById('token-label').textContent = { access:'Access Token', eat:'EAT Token', jwt:'JWT Token' }[t] || t;
+  document.getElementById('token-input').placeholder = 'Paste your ' + t.toUpperCase() + ' token here...';
+}
+
+function setType(t, el) {
+  manualTypeSet = true;
+  applyType(t);
+  const val = document.getElementById('token-input').value.trim();
+  if (val) validateTokenVisual(val);
+}
+
+function validateTokenVisual(val) {
+  const row = document.getElementById('token-input-row');
+  const sicon = document.getElementById('token-status-icon');
+  sicon.classList.remove('show');
+  if (!val) {
+    row.classList.remove('valid');
+    row.classList.add('invalid');
+    return;
+  }
+  row.classList.remove('invalid');
+  row.classList.add('valid');
+}
+
+let eyeVisible = false;
+function toggleEye() {
+  eyeVisible = !eyeVisible;
+  const input  = document.getElementById('token-input');
+  const open   = document.getElementById('eye-icon-open');
+  const closed = document.getElementById('eye-icon-closed');
+  const btn    = document.getElementById('eye-btn');
+  input.classList.toggle('visible', eyeVisible);
+  open.style.display   = eyeVisible ? 'none' : '';
+  closed.style.display = eyeVisible ? '' : 'none';
+  btn.classList.toggle('active-eye', eyeVisible);
+}
+
+async function pasteToken() {
+  try {
+    const text = await navigator.clipboard.readText();
+    document.getElementById('token-input').value = text;
+    onTokenInput();
+  } catch(e) { document.getElementById('token-input').focus(); }
+}
+async function copyToken() {
+  const val = document.getElementById('token-input').value;
+  if (val) try { await navigator.clipboard.writeText(val); } catch(e) {}
+}
+function clearToken() {
+  document.getElementById('token-input').value = '';
+  manualTypeSet = false;
+  validateTokenVisual('');
+}
+
+async function pasteBioClipboard() {
+  const ta = document.getElementById('bio-textarea');
+  try {
+    const text = await navigator.clipboard.readText();
+    const s = ta.selectionStart, e = ta.selectionEnd;
+    ta.value = ta.value.slice(0, s) + text + ta.value.slice(e);
+    ta.selectionStart = ta.selectionEnd = s + text.length;
+    ta.focus();
+    updateCharCount(); updatePreview();
+  } catch(err) { ta.focus(); }
+}
+
+function insertTag(tag) {
+  const ta = document.getElementById('bio-textarea');
+  const s  = ta.selectionStart;
+  ta.value = ta.value.slice(0, s) + tag + ta.value.slice(s);
+  ta.selectionStart = ta.selectionEnd = s + tag.length;
+  ta.focus();
+  updateCharCount(); updatePreview();
+}
+function toggleFmtTag(key) { insertTag('[' + key + ']'); syncToolbarState(); }
+function toggleAlignTag(key) {
+  insertTag('[' + key + ']');
+  ['C'].forEach(k => { const b = document.getElementById('btn-'+k); if (b) b.classList.remove('is-on'); });
+  document.getElementById('btn-'+key).classList.add('is-on');
+  document.getElementById('bio-textarea').focus();
+}
+function insertLineBreak() { insertTag('\n'); }
+function clearBio() {
+  document.getElementById('bio-textarea').value = '';
+  ['B','I','U','S','C'].forEach(k => { const b = document.getElementById('btn-'+k); if (b) b.classList.remove('is-on'); });
+  updateCharCount(); updatePreview();
+}
+function syncToolbarState() {
+  const ta   = document.getElementById('bio-textarea');
+  const text = ta.value.slice(0, ta.selectionStart);
+
+  ['B','I','U','S'].forEach(key => {
+    const count = (text.match(new RegExp('\\['+key+'\\]','gi')) || []).length;
+    const btn   = document.getElementById('btn-'+key);
+    if (btn) btn.classList.toggle('is-on', count % 2 === 1);
+  });
+
+  // Colour swatch sync
+  if (activeColor) {
+    const tag = activeColor.toUpperCase();
+    const exists = ta.value.toUpperCase().includes(tag);
+    if (!exists) {
+      document.querySelectorAll('.swatch.active').forEach(s => s.classList.remove('active'));
+      activeColor = null;
+    }
+  }
+}
+
+function updateCharCount() {
+  const ta  = document.getElementById('bio-textarea');
+  const len = ta.value.length, max = 280;
+  const pct = (len / max) * 100;
+  const fill = document.getElementById('char-bar-fill');
+  const num  = document.getElementById('char-num');
+  fill.style.width = Math.min(pct, 100) + '%';
+  num.textContent  = len + ' / ' + max;
+  // Smooth interpolated color: green → yellow → red
+  let barColor, textColor;
+  if (pct <= 0) {
+    barColor = '#30d158'; textColor = 'rgba(235,235,245,.55)';
+  } else if (pct < 80) {
+    // green → orange interpolation
+    const t = pct / 80;
+    const r = Math.round(48  + (255-48)  * t);
+    const g = Math.round(209 + (107-209) * t);
+    const b = Math.round(88  + (0-88)    * t);
+    barColor = `rgb(${r},${g},${b})`; textColor = barColor;
+  } else if (pct < 100) {
+    // orange → yellow → red
+    const t = (pct - 80) / 20;
+    const r = Math.round(255);
+    const g = Math.round(107 + (214-107) * (t < .5 ? t*2 : 1) - (214 * Math.max(0,(t-.5)*2)));
+    const b = 0;
+    barColor = `rgb(${r},${g},${b})`; textColor = barColor;
+  } else {
+    barColor = '#ff453a'; textColor = '#ff453a';
+  }
+  fill.style.background = barColor;
+  num.style.color = textColor;
+  num.className = 'char-num';
+}
+
+function renderPreview(raw) {
+  const tokenRe = /(\[[A-F0-9]{6}\]|\[B\]|\[I\]|\[U\]|\[S\]|\[C\]|\[L\]|\[R\])/gi;
+  const parts   = raw.split(tokenRe);
+  let color = null, bold = false, italic = false, underline = false, strike = false, align = null;
+  let html  = '';
+  for (let part of parts) {
+    if (!part) continue;
+    const up = part.toUpperCase();
+    if (/^\[[A-F0-9]{6}\]$/.test(up)) { color = up.slice(1,7); continue; }
+    switch(up) {
+      case '[B]': bold      = !bold;      continue;
+      case '[I]': italic    = !italic;    continue;
+      case '[U]': underline = !underline; continue;
+      case '[S]': strike    = !strike;    continue;
+      case '[C]': align = align==='C' ? null : 'C'; continue;
+      case '[L]': align = align==='L' ? null : 'L'; continue;
+      case '[R]': align = align==='R' ? null : 'R'; continue;
+    }
+    part.split('\n').forEach((line, idx) => {
+      if (idx > 0) html += '<br>';
+      if (!line) return;
+      let cls = [];
+      if (bold)        cls.push('p-bold');
+      if (italic)      cls.push('p-italic');
+      if (underline)   cls.push('p-underline');
+      if (strike)      cls.push('p-strike');
+      if (align==='C') cls.push('p-center');
+      if (align==='L') cls.push('p-left');
+      if (align==='R') cls.push('p-right');
+      const style   = color ? `color:#${color};` : '';
+      const escaped = line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      html += `<span class="${cls.join(' ')}" style="${style}">${escaped}</span>`;
+    });
+  }
+  return html;
+}
+function updatePreview() {
+  const raw = document.getElementById('bio-textarea').value;
+  const box = document.getElementById('preview-bio');
+  if (!raw.trim()) {
+    box.innerHTML = '<span style="color:rgba(255,255,255,.25);font-style:italic;font-size:14px;">Your bio will appear here...</span>';
+    return;
+  }
+  box.innerHTML = renderPreview(raw);
+}
+
+// ─── HISTORY ───
+const MAX_HISTORY = 10;
+let bioHistory = [];
+
+function loadHistory() {
+  try {
+    const s = localStorage.getItem('ff_bio_history');
+    bioHistory = s ? JSON.parse(s) : [];
+    if (bioHistory.length > MAX_HISTORY) bioHistory = bioHistory.slice(0, MAX_HISTORY);
+  } catch(e) { bioHistory = []; }
+  renderHistory();
+}
+function saveHistory() {
+  try { localStorage.setItem('ff_bio_history', JSON.stringify(bioHistory)); } catch(e) {}
+}
+function addToHistory(bio, nickname, uid) {
+  bioHistory = bioHistory.filter(h => h.bio !== bio);
+  bioHistory.unshift({ bio, nickname: nickname||'—', uid: uid||'—', time: Date.now() });
+  if (bioHistory.length > MAX_HISTORY) bioHistory = bioHistory.slice(0, MAX_HISTORY);
+  saveHistory(); renderHistory();
+}
+function deleteHistoryItem(idx) { bioHistory.splice(idx,1); saveHistory(); renderHistory(); }
+function clearAllHistory() { if (!bioHistory.length) return; bioHistory=[]; saveHistory(); renderHistory(); }
+function loadHistoryItem(idx) {
+  const item = bioHistory[idx]; if (!item) return;
+  document.getElementById('bio-textarea').value = item.bio;
+  updateCharCount(); updatePreview(); syncToolbarState();
+  closeHistory();
+  document.getElementById('bio-textarea').scrollIntoView({ behavior:'smooth', block:'center' });
+}
+function formatTimeAgo(ts) {
+  const d = Math.floor((Date.now()-ts)/1000);
+  if (d < 60)    return 'Just now';
+  if (d < 3600)  return Math.floor(d/60)+'m ago';
+  if (d < 86400) return Math.floor(d/3600)+'h ago';
+  return Math.floor(d/86400)+'d ago';
+}
+function stripTagsPreview(bio) { return bio.replace(/\[[^\]]{1,8}\]/g,'').trim()||bio; }
+function renderHistory() {
+  const empty = document.getElementById('history-empty');
+  const list  = document.getElementById('history-list');
+  const count = document.getElementById('drawer-count');
+  const badge = document.getElementById('hist-badge');
+  if (count) count.textContent = bioHistory.length+' / '+MAX_HISTORY;
+  if (badge) { badge.textContent=bioHistory.length; badge.className='hist-badge'+(bioHistory.length>0?' visible':''); }
+  if (!bioHistory.length) { empty.style.display=''; list.style.display='none'; return; }
+  empty.style.display='none'; list.style.display='flex'; list.innerHTML='';
+  bioHistory.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'history-item';
+    div.style.animationDelay = (idx*0.04)+'s';
+    const preview = stripTagsPreview(item.bio);
+    const meta = item.nickname!=='—'
+      ? `<i class="fa-solid fa-user"></i>${item.nickname} · ${formatTimeAgo(item.time)}`
+      : formatTimeAgo(item.time);
+    div.innerHTML = `
+      <div class="history-item-num">${idx+1}</div>
+      <div class="history-item-body" onclick="loadHistoryItem(${idx})">
+        <div class="history-item-text">${preview.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+        <div class="history-item-meta">${meta}</div>
+      </div>
+      <div class="history-load-tag" onclick="loadHistoryItem(${idx})">Load</div>
+      <button class="history-item-del" onclick="event.stopPropagation();deleteHistoryItem(${idx})">
+        <i class="fa-solid fa-xmark"></i>
+      </button>`;
+    list.appendChild(div);
+  });
+}
+function openHistory() { document.getElementById('history-overlay').classList.add('active'); document.body.style.overflow='hidden'; }
+function closeHistory() { document.getElementById('history-overlay').classList.remove('active'); document.body.style.overflow=''; }
+function closeHistoryIfOverlay(e) { if (e.target===document.getElementById('history-overlay')) closeHistory(); }
+
+// ─── RESULT MODAL ───
+function formatRegion(r) {
+  const map={BD:'Bangladesh',IND:'India',PK:'Pakistan',ID:'Indonesia',BR:'Brazil',TH:'Thailand',VN:'Vietnam',MY:'Malaysia',SG:'Singapore',PH:'Philippines'};
+  return map[r]||r||'—';
+}
+function setPlatformIcon(p) {
+  const el=document.getElementById('rmPlatformIcon'), text=document.getElementById('rmPlatformText');
+  const pl=(p||'').toLowerCase();
+  if (pl.includes('android')) { el.className='platform-icon fa-brands fa-android'; el.style.color='#3ddc84'; text.textContent='Android'; }
+  else if (pl.includes('ios')||pl.includes('apple')) { el.className='platform-icon fa-brands fa-apple'; el.style.color='#fff'; text.textContent='iOS'; }
+  else { el.className='platform-icon fa-solid fa-gamepad'; el.style.color='var(--text3)'; text.textContent=p||'—'; }
+}
+
+let _updatingInterval = null;
+
+function setBtnState(state) {
+  const btn  = document.getElementById('update-btn');
+  const icon = document.getElementById('update-btn-icon');
+  const text = document.getElementById('update-btn-text');
+
+  if (state === 'loading') {
+    btn.disabled = true;
+    icon.style.display = 'none';
+    const s = btn.querySelector('.btn-spinner'); if (s) s.remove();
+    const sp = document.createElement('div'); sp.className = 'btn-spinner';
+    btn.insertBefore(sp, text);
+
+    // Animated dots loop
+    let dots = 1;
+    text.textContent = 'Updating.';
+    _updatingInterval = setInterval(() => {
+      dots = dots >= 3 ? 1 : dots + 1;
+      text.textContent = 'Updating' + '.'.repeat(dots);
+    }, 400);
+
+  } else {
+    btn.disabled = false;
+    icon.style.display = '';
+    const s = btn.querySelector('.btn-spinner'); if (s) s.remove();
+    if (_updatingInterval) { clearInterval(_updatingInterval); _updatingInterval = null; }
+    text.textContent = 'Update Bio';
+  }
+}
+
+async function updateBio() {
+  const token = document.getElementById('token-input').value.trim();
+  const bio   = document.getElementById('bio-textarea').value.trim();
+  const type  = document.querySelector('.type-btn.active').textContent.trim().toLowerCase();
+
+  if (!token) { shakeEl('token-input-row'); return; }
+  if (!bio)   { shakeEl('bio-textarea');    return; }
+
+  setBtnState('loading');
+  try {
+    const BASE='https://ff-long-bio-update-tools.vercel.app', KEY='m41nul-x';
+    const url = type==='eat'
+      ? `${BASE}/api/eat-to-bio?eat_token=${encodeURIComponent(token)}&bio=${encodeURIComponent(bio)}&key=${KEY}`
+      : `${BASE}/api/bio?access_token=${encodeURIComponent(token)}&bio=${encodeURIComponent(bio)}&key=${KEY}`;
+    const data = await (await fetch(url)).json();
+    if (data.status==='success') {
+      const br=data.bio_update||{};
+      const nickname=data.account_nickname||br.nickname||'—';
+      const uid=data.account_id||br.uid||'—';
+      addToHistory(bio, nickname, uid);
+      // Green flash on button
+      const ubtn = document.getElementById('update-btn');
+      ubtn.classList.add('success-flash');
+      setTimeout(() => ubtn.classList.remove('success-flash'), 1000);
+      showResult('success', { region:data.region||br.region||'—', platform:br.platform||'' }, { nickname, uid, bio });
+    } else {
+      showResult('error', null, { message: data.message||data.error||'Update failed. Check your token.' });
+    }
+  } catch(e) {
+    showResult('error', null, { message: 'Connection error. Please try again.' });
+  } finally { setBtnState('idle'); }
+}
+
+function showResult(type, data, extra) {
+  const card    = document.getElementById('result-card');
+  const icon    = document.getElementById('pop-icon');
+  const iconI   = document.getElementById('pop-icon-i');
+  const svg     = document.getElementById('check-svg');
+  const path    = document.getElementById('check-path');
+  const title   = document.getElementById('result-title');
+  const msg     = document.getElementById('result-msg');
+  const profile = document.getElementById('rm-profile');
+
+  card.className = 'result-card ' + (type==='success' ? 'success-card' : 'error-card');
+  icon.className = 'pop-icon '    + (type==='success' ? 'success-icon' : 'error-icon');
+
+  // Reset ring animations by re-cloning
+  ['pop-ring-1','pop-ring-2','pop-ring-3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const clone = el.cloneNode(true);
+    el.parentNode.replaceChild(clone, el);
+  });
+
+  if (type === 'success') {
+    // Show SVG, hide FA icon
+    svg.style.display = 'block';
+    iconI.style.display = 'none';
+    // Reset + retrigger draw animation
+    path.style.animation = 'none';
+    path.getBoundingClientRect();
+    path.style.animation = '';
+
+    title.textContent = 'Bio Updated!';
+    msg.textContent   = 'Your Free Fire profile bio has been updated successfully.';
+    profile.style.display = 'flex';
+    document.getElementById('rmNickname').textContent = extra.nickname;
+    document.getElementById('rmUid').textContent      = extra.uid;
+    document.getElementById('rmRegion').textContent   = formatRegion(data.region);
+    document.getElementById('rmBioText').textContent  = extra.bio;
+    document.getElementById('rmBioLen').textContent   = extra.bio.length + ' chars';
+    setPlatformIcon(data.platform || '');
+  } else {
+    // Show FA xmark, hide SVG
+    svg.style.display  = 'none';
+    iconI.style.display = 'block';
+    iconI.className    = 'fa-solid fa-xmark';
+    title.textContent  = 'Update Failed';
+    msg.textContent    = extra.message || 'Something went wrong.';
+    profile.style.display = 'none';
+  }
+
+  // Reset card pop animation
+  card.style.animation = 'none';
+  card.getBoundingClientRect();
+  card.style.animation = '';
+
+  document.getElementById('result-overlay').classList.add('active');
+}
+function spawnConfetti() {
+  const colors = ['#FF6B00','#FFD60A','#30D158','#0A84FF','#BF5AF2','#FF375F','#FF2D55','#00E5FF','#ADFF2F','#FF8C00'];
+  const COUNT = 38;
+  // Use fixed position overlay so particles escape the card
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden;
+  `;
+  document.body.appendChild(overlay);
+
+  // Origin: center of pop-icon on screen
+  const iconEl = document.getElementById('pop-icon');
+  const rect = iconEl.getBoundingClientRect();
+  const ox = rect.left + rect.width / 2;
+  const oy = rect.top + rect.height / 2;
+
+  for (let i = 0; i < COUNT; i++) {
+    const el = document.createElement('div');
+    
+    const size = 6 + Math.random() * 9;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    el.style.cssText = `
+      position:fixed;
+      left:${ox}px;top:${oy}px;
+      width:${size}px;height:${size}px;
+      background:${color};
+      border-radius:50%;
+      pointer-events:none;
+      opacity:1;
+      transform-origin:center;
+    `;
+    overlay.appendChild(el);
+
+    // Physics params
+    const angle = (Math.random() * 360) * Math.PI / 180;
+    const speed = 120 + Math.random() * 220;
+    const vx = Math.cos(angle) * speed;
+    const vy = Math.sin(angle) * speed - (80 + Math.random() * 80); // upward bias
+    const gravity = 320 + Math.random() * 160;
+    const rotSpeed = (Math.random() - 0.5) * 720;
+    const startTime = performance.now() + Math.random() * 120;
+    const duration = 900 + Math.random() * 500;
+    let rot = Math.random() * 360;
+
+    function animate(now) {
+      if (now < startTime) { requestAnimationFrame(animate); return; }
+      const t = (now - startTime) / 1000;
+      if (t > duration / 1000) { el.remove(); return; }
+      const x = vx * t;
+      const y = vy * t + 0.5 * gravity * t * t;
+      rot += rotSpeed * (1/60);
+      const progress = t / (duration / 1000);
+      const opacity = progress < 0.6 ? 1 : 1 - ((progress - 0.6) / 0.4);
+      el.style.transform = `translate(${x}px,${y}px) rotate(${rot}deg)`;
+      el.style.opacity = opacity;
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  }
+
+  setTimeout(() => overlay.remove(), 1800);
+}
+function closeResult() { document.getElementById('result-overlay').classList.remove('active'); }
+
+function shakeEl(id) {
+  const el=document.getElementById(id); if(!el) return;
+  el.style.animation='none'; el.offsetHeight; el.style.animation='shake .4s ease';
+  setTimeout(()=>el.style.animation='', 400);
+}
+const ss=document.createElement('style');
+ss.textContent='@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}';
+document.head.appendChild(ss);
+
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+updateCharCount();
+loadHistory();
+
+// ─── TYPING PLACEHOLDER EFFECT ───
+(function() {
+  const ta = document.getElementById('bio-textarea');
+  const phrases = [
+    'Write your bio here...',
+    'Click a color, then type!',
+    'Add [B] for bold text...',
+    'Use colors to stand out...',
+    'Your bio, your style...',
+  ];
+  let pi = 0, ci = 0, deleting = false;
+  let timer = null;
+
+  function type() {
+    if (ta.value !== '') return; // stop if user typed
+    const phrase = phrases[pi];
+    if (!deleting) {
+      ci++;
+      ta.placeholder = phrase.slice(0, ci);
+      if (ci === phrase.length) {
+        deleting = true;
+        timer = setTimeout(type, 1600);
+      } else {
+        timer = setTimeout(type, 55);
+      }
+    } else {
+      ci--;
+      ta.placeholder = phrase.slice(0, ci);
+      if (ci === 0) {
+        deleting = false;
+        pi = (pi + 1) % phrases.length;
+        timer = setTimeout(type, 400);
+      } else {
+        timer = setTimeout(type, 30);
+      }
+    }
+  }
+
+  ta.addEventListener('focus', () => { clearTimeout(timer); if (!ta.value) ta.placeholder = ''; });
+  ta.addEventListener('blur',  () => { if (!ta.value) { ci = 0; deleting = false; timer = setTimeout(type, 600); } });
+  ta.addEventListener('input', () => { if (ta.value) clearTimeout(timer); });
+  timer = setTimeout(type, 800);
+})();
+</script>
+</body>
+</html>
