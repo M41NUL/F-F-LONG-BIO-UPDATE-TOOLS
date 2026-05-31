@@ -2,7 +2,7 @@
 
 <img src="https://i.ibb.co/Ps9sQ0MV/f379753e71f7.jpg" width="80" height="80" style="border-radius:50%" alt="FF Long Bio Logo"/>
 
-# 🔥 Free Fire Long Bio Update Tools
+# 🔥 Free Fire Long Bio Updater
 
 **Update your Free Fire profile bio with colors, bold, italic & more — instantly from browser!**
 
