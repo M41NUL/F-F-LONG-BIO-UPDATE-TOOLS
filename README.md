@@ -121,7 +121,7 @@ Or just double-click `index.html` — it works offline too (except API calls).
 
 ## 🔑 How to Get Your Token
 
-1. Visit: [https://eat-access-token-olive.vercel.app](https://eat-access-token-olive.vercel.app)
+1. Visit: [Free Fire Token Generator](https://ff-token-generator-m41nul.vercel.app)
 2. Login with your Free Fire account
 3. Copy your **Access Token** or **EAT Token**
 4. Paste it into the tool and update your bio!
